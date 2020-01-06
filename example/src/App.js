@@ -14,7 +14,7 @@ export default class App extends Component {
 
     return (
       <div className='container'>
-        <Carousel images={ images } />
+        <Carousel images={ images } type={ 'img' }/>
       </div>
     )
   }
