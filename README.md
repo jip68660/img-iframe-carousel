@@ -19,8 +19,9 @@ import MyComponent from 'img-iframe-carousel'
 
 class Example extends Component {
   render () {
+  var images = [image1, image2, image3, image4]
     return (
-      <MyComponent />
+      <Carousel images={ images } types={ 'img' } />
     )
   }
 }
