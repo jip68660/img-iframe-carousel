@@ -74,28 +74,38 @@ export class Carousel extends Component {
   }
 
   render() {
-    // const { images } = this.props.images
     console.log(`${this.state.last} ${this.state.index} ${this.state.next}`)
     const imagesList = this.props.images.map((image, index) => {
       if (index == this.state.index) {
         return(
           <img 
-            key={ index } 
+            key={ 2 } 
             className={ `${styles.slides} ${styles.actived}` } 
             src={ image }
           />
         )
       }
-      else {
+      else if (index == this.state.last) {
         return(
           <img 
-            key={ index } 
-            className={ `${styles.slides} ${styles.blurry}`} 
+            key={ 1 } 
+            className={ `${styles.slides} ${styles.blurry} ${styles.last}`} 
             src={ image } 
           />
-         )
+        )
+      }
+      else if (index == this.state.next) {
+        return(
+          <img 
+            key={ 3 } 
+            className={ `${styles.slides} ${styles.blurry} ${styles.next}`} 
+            src={ image } 
+          />
+        )
       }
     })
+    imagesList.sort((a,b) => a.key - b.key)
+
     return(
       <div className={ styles.carousel_container }>        
         { imagesList }
