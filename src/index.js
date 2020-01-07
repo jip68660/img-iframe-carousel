@@ -4,7 +4,7 @@ import styles from './carousel.css'
 export class Carousel extends Component {
   constructor (props) {
     super(props)   
-    this.maxLength = props.images.length 
+    this.maxLength = props.sources.length 
     this.state=({
       index: 0,
       last: this.maxLength - 1,
@@ -75,7 +75,7 @@ export class Carousel extends Component {
 
   render() {
     console.log(`${this.state.last} ${this.state.index} ${this.state.next}`)
-    const imagesList = this.props.images.map((image, index) => {
+    const sourcesList = this.props.sources.map((image, index) => {
       if (index == this.state.index) {
         return(
           <img 
@@ -104,11 +104,11 @@ export class Carousel extends Component {
         )
       }
     })
-    imagesList.sort((a,b) => a.key - b.key)
+    sourcesList.sort((a,b) => a.key - b.key)
 
     return(
       <div className={ styles.carousel_container }>        
-        { imagesList }
+        { sourcesList }
         <div>
           <button className={ styles.buttons } onClick={ this.slideToLeft }>left</button>
           <button className={ styles.buttons } onClick={ this.slideToRight }>right</button>
