@@ -21,7 +21,11 @@ class Example extends Component {
   render () {
   var images = [image1, image2, image3, image4]
     return (
-      <Carousel images={ images } types={ 'img' } />
+      <Carousel 
+        images={ images } 
+        width={ 300 }   //default: px
+        height={ 200 }  //default: px
+      />
     )
   }
 }

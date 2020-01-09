@@ -74,12 +74,26 @@ export class Carousel extends Component {
   }
 
   render() {
-    console.log(`${this.state.last} ${this.state.index} ${this.state.next}`)
+    var activedDimension = { 
+      width: this.props.width,
+      height: this.props.height
+    }
+    var blurryDimension = {
+      width: this.props.width - 50,
+      height: this.props.height - 50
+    }
+    var marginForLast = {
+      marginLeft: -blurryDimension.width + 50
+    }
+    var marginForNext = {
+      marginLeft: -50
+    }
     const sourcesList = this.props.sources.map((image, index) => {
       if (index == this.state.index) {
         return(
           <img 
             key={ 2 } 
+            style={ activedDimension }
             className={ `${styles.slides} ${styles.actived}` } 
             src={ image }
           />
@@ -89,6 +103,7 @@ export class Carousel extends Component {
         return(
           <img 
             key={ 1 } 
+            style={{ ...blurryDimension, ...marginForLast }}
             className={ `${styles.slides} ${styles.blurry} ${styles.last}`} 
             src={ image } 
           />
@@ -98,6 +113,7 @@ export class Carousel extends Component {
         return(
           <img 
             key={ 3 } 
+            style= {{ ...blurryDimension, ...marginForNext }}
             className={ `${styles.slides} ${styles.blurry} ${styles.next}`} 
             src={ image } 
           />
@@ -107,11 +123,11 @@ export class Carousel extends Component {
     sourcesList.sort((a,b) => a.key - b.key)
 
     return(
-      <div className={ styles.carousel_container }>        
+      <div className={ styles.carousel_container }>   
         { sourcesList }
-        <div>
-          <button className={ styles.buttons } onClick={ this.slideToLeft }>left</button>
-          <button className={ styles.buttons } onClick={ this.slideToRight }>right</button>
+        <div className={ styles.buttons}>
+          <button className={ styles.leftButton } onClick={ this.slideToLeft }>Left</button>
+          <button className={ styles.rightButton } onClick={ this.slideToRight }>Right</button>
         </div>
       </div>
     )
