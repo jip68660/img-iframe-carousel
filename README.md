@@ -15,7 +15,7 @@ npm install --save img-iframe-carousel
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'img-iframe-carousel'
+import Carousel from 'img-iframe-carousel'
 
 class Example extends Component {
   render () {
