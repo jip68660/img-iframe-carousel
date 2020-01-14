@@ -7,13 +7,14 @@
 .slides { 
     vertical-align: middle;
     position: relative;
+    border-radius: 5%;
 }
 .actived {
     opacity: 1;
     z-index: 1;
+    /* transform: rotateY(0) translateZ(35vw); */
 }
 .blurry {
-    margin-top: 2.5%;
     opacity: 0.3; 
     z-index: 0;
 } 
@@ -22,9 +23,9 @@
 }
 .last {
     position: absolute;
-    transform: skewY(-5deg);
+    /* transform: rotateY(120deg);  */
 }
 .next {
     position: absolute;
-    transform: skewY(5deg);
+    /* transform: rotateY(240deg); */
 }

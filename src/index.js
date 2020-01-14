@@ -74,19 +74,23 @@ export class Carousel extends Component {
   }
 
   render() {
+    var  marginForWidth= this.props.width * 0.3;
+    var marginForHeight = this.props.height * 0.2;
+
     var activedDimension = { 
       width: this.props.width,
       height: this.props.height
     }
     var blurryDimension = {
-      width: this.props.width - 50,
-      height: this.props.height - 50
+      width: this.props.width - marginForWidth,
+      height: this.props.height - marginForHeight,
+      marginTop: marginForHeight * 0.5
     }
     var marginForLast = {
-      marginLeft: -blurryDimension.width + 50
+      marginLeft: -blurryDimension.width + marginForWidth
     }
     var marginForNext = {
-      marginLeft: -50
+      marginLeft: -marginForWidth
     }
 
     const sourcesList = this.props.sources.map((image, index) => {
