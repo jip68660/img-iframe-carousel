@@ -9,23 +9,29 @@
     position: relative;
     border-radius: 5%;
 }
-.actived {
+.main {
     opacity: 1;
     z-index: 1;
-    /* transform: rotateY(0) translateZ(35vw); */
 }
 .blurry {
     opacity: 0.3; 
     z-index: 0;
+    transition: all 0.8s ease;
 } 
 .blurry:hover {
     cursor: pointer;
 }
 .last {
     position: absolute;
-    /* transform: rotateY(120deg);  */
+}
+.last:hover {
+    transform: translateX(-2vw);
+    opacity: 0.8;
 }
 .next {
     position: absolute;
-    /* transform: rotateY(240deg); */
+}
+.next:hover {
+    transform: translateX(2vw);
+    opacity: 0.8;
 }

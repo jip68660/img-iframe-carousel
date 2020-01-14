@@ -77,7 +77,7 @@ export class Carousel extends Component {
     var  marginForWidth= this.props.width * 0.3;
     var marginForHeight = this.props.height * 0.2;
 
-    var activedDimension = { 
+    var mainDimension = { 
       width: this.props.width,
       height: this.props.height
     }
@@ -98,8 +98,8 @@ export class Carousel extends Component {
         return(
           <img // < `{props.TYPES}` /> //react img syntax: not html syntax
             key={ 2 } 
-            style={ activedDimension }
-            className={ `${styles.slides} ${styles.actived}` } 
+            style={ mainDimension }
+            className={ `${styles.slides} ${styles.main}` } 
             src={ image }
           />
         )
