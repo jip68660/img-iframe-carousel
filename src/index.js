@@ -88,10 +88,11 @@ export class Carousel extends Component {
     var marginForNext = {
       marginLeft: -50
     }
+
     const sourcesList = this.props.sources.map((image, index) => {
       if (index == this.state.index) {
         return(
-          <img 
+          <img // < `{props.TYPES}` /> //react img syntax: not html syntax
             key={ 2 } 
             style={ activedDimension }
             className={ `${styles.slides} ${styles.actived}` } 
@@ -106,6 +107,7 @@ export class Carousel extends Component {
             style={{ ...blurryDimension, ...marginForLast }}
             className={ `${styles.slides} ${styles.blurry} ${styles.last}`} 
             src={ image } 
+            onClick={ this.slideToLeft }
           />
         )
       }
@@ -116,6 +118,7 @@ export class Carousel extends Component {
             style= {{ ...blurryDimension, ...marginForNext }}
             className={ `${styles.slides} ${styles.blurry} ${styles.next}`} 
             src={ image } 
+            onClick={ this.slideToRight }
           />
         )
       }
@@ -125,10 +128,6 @@ export class Carousel extends Component {
     return(
       <div className={ styles.carousel_container }>   
         { sourcesList }
-        <div className={ styles.buttons}>
-          <button className={ styles.leftButton } onClick={ this.slideToLeft }>Left</button>
-          <button className={ styles.rightButton } onClick={ this.slideToRight }>Right</button>
-        </div>
       </div>
     )
   }
